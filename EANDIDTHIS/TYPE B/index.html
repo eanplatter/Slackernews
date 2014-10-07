@@ -1,0 +1,37 @@
+<!-- This is where you will have your applications hub. It is typically the only file that needs to do things like declare HTML5: 
+	<!DOCTYPE html>
+
+heads and bodies 
+	<head></head>, 
+		<body></body>
+
+and with AngularJS, it's where you'll call your views: 
+	<div ng-view></div>
+
+
+You will also need to link all of your files and third party code. 
+
+
+Within the <head></head> we want to place our stylesheets and, later on, meta tags. 
+
+At the bottom of our <body></body> we will place all of our <script></script> files. 
+
+With <script></script> files we list them from the most independent files to the least. 
+
+For instance:
+	Firebase's AngularFire wont work unless we have AngularJS above it in our body.
+	This is because our app will go and search for AngularFire, and THEN search for Angular.
+	When this happens, AngularFire will say, "WTF there is no Angular here!" and Angular will say
+	"I don't see AngularFire! Why is the module calling AngularFire!?"
+
+It's a freaking mess.  
+
+
+One last thing you'll need to include in the index is your <div ng-view></div>. This essentially
+looks at your router, and at the URL and says, what do I need to show. The router should never show the index.html, if you do this, your browser will crash. This is becaue the router will say: LOOK TO INDEX.HTML, so then your app does, and when it gets there index.html says: LOOK TO THE ROUTES. Infinite. Freaking. Loop. 
+
+
+
+
+-->
+
