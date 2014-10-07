@@ -1,0 +1,77 @@
+* {
+	letter-spacing: 2px;
+	font-family: "Quicksand", sans-serif;
+}
+
+html, body{
+	background-image: url("space.jpg");
+	background-size: cover;
+	font-family: 'Open Sans Condensed', sans-serif;
+}
+
+#container{
+	background-color: rgba(255, 255, 255, .9);
+	width: 80%;
+	margin: 5% auto;
+	letter-spacing: 3px;
+	padding: 25px;	
+	text-align: center;
+}
+footer {
+	text-align: center;
+	bottom: 0px;
+	margin: 0 auto;
+	width: 100%;
+	letter-spacing: 2px;
+	font-size: .7em ;
+	color: white;
+}
+#searchbox {
+	margin: 0px;
+	padding-bottom: 20px;
+}
+#searchbox .input {
+    width: 80%;
+    margin: 5px auto 0px auto;
+    height: 36px;
+}
+.button {
+	padding: 6px 9px;
+	border: 2px solid #207cca;
+    background-color: #207cca;
+    color: #fafafa;
+}
+.button:hover{
+	background-color: rgba(255, 255, 255, 1);
+    color: #207cca;
+}
+
+
+#searchbox .button {
+    position: relative;
+    padding: 6px 9px;
+    left: -8px;
+    border: 2px solid #207cca;
+    background-color: #207cca;
+    color: #fafafa;
+}
+#searchbox .button:hover  {
+	background-color: rgba(255, 255, 255, 1);
+	color: #207cca;
+}
+.page-header img{
+	height: 50px;
+	width: 50px;
+	margin: 10px;
+}
+.page-header img:hover{
+	background-color: lightgray;
+}
+.page-header h1{
+	font-size: 4em;
+}
+.userNotify{
+	text-align: right;
+	font-size: .7em;
+}
+

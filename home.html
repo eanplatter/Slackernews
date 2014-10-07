@@ -1,0 +1,78 @@
+<html>
+<head>
+  <title>slacker news</title>
+   <link rel="stylesheet" type="text/css" href="main.css">
+  <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-route.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
+  <script src="app.js"></script>
+  <style> .glyphicon-thumbs-up { cursor:pointer } </style>
+  <script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+  <script type="text/javascript" src="jquery.metadata.js"></script>
+  <script type="text/javascript" src="jquery.mb.YTPlayer.js"></script>
+// <script>
+  // $(function(){
+  //   $(".movie").mb_YTPlayer();
+  // });
+
+  // </script>
+  // <script></script>
+</head>
+<body ng-app="slackerNews" ng-controller="mainCtrl">
+<!-- <a id="bgndVideo" href="http://www.youtube.com/watch?v=BsekcY04xvQ"
+  class="movie {opacity:.8, isBgndMovie:{width:'window',mute:false}, ratio:'16/9',quality:'default'}">
+  background movie
+  </a> -->
+  <div id="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+
+      <div class="page-header">
+        <h1>slacker news</h1>
+        <h5>link for the lazy</h5>
+        <h6><a href="#">recent</a>// <a href="#">favorites</a> // <a href="#">suggested</a> // <a href="#">riot</a></h6>
+        <form id = "searchbox">
+            <input class="input" type="text" placeholder="Search..." required>
+             <input class="button" type="button" value="enter">
+        </form>
+      </div>
+
+      <div ng-repeat="post in posts | orderBy:'-upvotes'">
+        <span class="glyphicon glyphicon-thumbs-up"
+          ng-click="incrementUpvotes(post)"></span>
+        {{post.upvotes}}
+        <span style="font-size:20px; margin-left:10px;">
+          <a ng-show="post.link" href="{{post.link}}">
+            {{post.title}}
+          </a>
+          <span ng-hide="post.link">
+            {{post.title}}
+          </span>
+        </span>
+      </div>
+
+      <form ng-submit="addPost()"
+        style="margin-top:30px;">
+        <h3>add a new post</h3>
+
+        <div class="form-group">
+          <input type="text"
+            class="form-control"
+            placeholder="title"
+            ng-model="title"></input>
+        </div>
+        <div class="form-group">
+          <input type="text"
+          class="form-control"
+          placeholder="enter full link including http:"
+          ng-model="link"></input>
+        </div>
+        <button type="submit" class="button">post</button>
+      </form>
+      </div>
+    </div>
+  </div>
+  <footer> &copy 2014 Molecular Developer </footer>
+</body>
+</html>

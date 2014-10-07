@@ -1,0 +1,85 @@
+<html>
+<head>
+  <title>slacker news</title>
+   <link rel="stylesheet" type="text/css" href="main.css">
+  <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Ropa+Sans|Quicksand|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-route.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
+  <script src="https://cdn.firebase.com/js/client/1.1.0/firebase.js"></script>
+  <script src="app.js"></script>
+  <script src="service.js"></script>
+  <style> .glyphicon-thumbs-up { cursor:pointer } </style>
+  <script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+  <script type="text/javascript" src="jquery.metadata.js"></script>
+  <script type="text/javascript" src="jquery.mb.YTPlayer.js"></script>
+  <script>
+  // $(function(){
+  //   $(".movie").mb_YTPlayer();
+  // });
+
+  // </script>
+</head>
+<body ng-app="slackerNews" ng-controller="mainCtrl">
+<!-- <a id="bgndVideo" href="http://www.youtube.com/watch?v=BsekcY04xvQ"
+  class="movie {opacity:.8, isBgndMovie:{width:'window',mute:false}, ratio:'16/9',quality:'default'}">
+  background movie
+  </a> -->
+  <div id="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+
+      <div class="page-header">
+        <h1>slacker news</h1>
+        <h5>link for the lazy</h5>
+        <h6><a href="#">recent</a>// <a href="#">favorites</a> // <a href="#">suggested</a> // <a href="#">riot</a></h6>
+        <form id = "searchbox">
+            <input class="input" type="text" ng-model="filterOptions.filterText" placeholder="Search..." required>
+             <input class="button" type="button" value="enter">
+        </form>
+        facebook   news   gmail   tumblr   twitter <br />
+        <a href="http://www.facebook.com/"><img src="icons/facebook.png"></a><a href="http://www.google.com/news/"><img src="icons/news.png"></a><a href="http://www.gmail.com/"><img src="icons/gmail.png"></a><a href="http://www.tumblr.com/"><img src="icons/tumblr.png"></a><a href="http://www.twitter.com/"><img src="icons/twitter.png"></a>
+      </div>
+
+      <div ng-repeat="post in posts | orderBy:'-upvotes'">
+        <span class="glyphicon glyphicon-thumbs-up"
+          ng-click="incrementUpvotes(post)"></span>
+        {{post.upvotes}}
+        <span style="font-size:20px; margin-left:10px;">
+          <a target="_blank" ng-show="post.url" href="{{post.url}}">
+            {{post.title}}
+          </a>
+          <span ng-hide="post.url">
+            {{post.title}}
+          </span>
+        </span>
+      </div>
+      <form ng-submit="addPost()"
+        style="margin-top:30px;">
+        <h3>add a new post</h3>
+
+        <div class="form-group">
+          <input type="text"
+            class="form-control"
+            placeholder="title"
+            ng-model="post.title"></input>
+        </div>
+        <div class="form-group">
+          <input type="text"
+          class="form-control"
+          placeholder="enter full link including http:"
+          ng-model="post.url"></input>
+        </div>
+        <button type="submit" class="button">post</button>
+      </form>
+      <div class="userNotify">
+    welcome back {{user.name}}
+    </div>
+      </div>
+    </div>
+  </div>
+
+  <footer> &copy 2014 molecular developer </footer>
+</body>
+</html>

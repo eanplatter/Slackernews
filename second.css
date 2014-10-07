@@ -1,0 +1,19 @@
+html, body{
+	background-image: url("space.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+#container {
+	width: 600px;
+	margin: 10% auto;
+	text-align: center;
+	background-color: none;
+}
+#container input{
+	width: 500px;
+	height: 20px;
+}
+* {
+	letter-spacing: 2px;
+	font-family: "Quicksand", sans-serif;
+}
